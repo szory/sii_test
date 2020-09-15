@@ -9,7 +9,12 @@ pipeline {
 
     stage('cucumberTest') {
       steps {
-        bat 'mvn test -Dcucumber.filter.tags="@datepicker"'
+        script {
+          for (int i = 0; i < 30; i++) {
+            bat 'mvn test -Dcucumber.filter.tags="@datepicker"'
+          }
+        }
+
       }
     }
 
