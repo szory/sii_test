@@ -58,7 +58,7 @@ public class DatepickerDefs {
     @Then("it should be selected {string}")
     public void it_should_be_written(String expectedAnswer) throws InterruptedException {
         assertEquals(expectedAnswer, actualAnswer);
-        driver.quit();
         Thread.sleep(1000);
+        driver.quit();
     }
 }
