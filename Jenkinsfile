@@ -10,7 +10,7 @@ pipeline {
     stage('cucumberTest') {
       steps {
         script {
-          for (int i = 0; i < 50; i++) {
+          for (int i = 0; i < 10; i++) {
             bat 'mvn test -Dcucumber.filter.tags="@datepicker"'
           }
         }
