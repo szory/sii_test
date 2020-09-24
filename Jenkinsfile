@@ -8,10 +8,21 @@ pipeline {
     }
 
     stage('cucumberTest') {
-      steps {
-        script {
-          for (int i = 0; i < 10; i++) {
-            bat 'mvn test -Dcucumber.filter.tags="@datepicker"'
+      parallel {
+        stage('cucumberTest') {
+          steps {
+            script {
+              for (int i = 0; i < 10; i++) {
+                bat 'mvn test -Dcucumber.filter.tags="@datepicker"'
+              }
+            }
+
+          }
+        }
+
+        stage('') {
+          steps {
+            bat 'mvn test -Dcucumber.filter.tags="@restassured1"'
           }
         }
 
