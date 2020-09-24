@@ -20,7 +20,7 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('restassured') {
           steps {
             bat 'mvn test -Dcucumber.filter.tags="@restassured1"'
           }
