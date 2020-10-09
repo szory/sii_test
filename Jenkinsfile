@@ -30,6 +30,8 @@ pipeline {
     }
   }
   post {
-        bat 'mvn cluecumber-report:reporting'
-	} 
+		always {
+			bat 'mvn cluecumber-report:reporting'
+		}
+	}
 }
