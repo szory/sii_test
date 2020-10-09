@@ -29,5 +29,11 @@ pipeline {
       }
     }
 
+    stage('report_cluecumber') {
+      steps {
+        bat 'mvn cluecumber-report:reporting'
+      }
+    }
+
   }
 }
