@@ -29,9 +29,9 @@ pipeline {
       }
     }
   }
-  post {
-		always {
-			bat 'mvn cluecumber-report:reporting'
-		}
-	}
+    post {
+        always {
+            junit 'build/reports/**/*.xml'
+        }
+    }
 }
