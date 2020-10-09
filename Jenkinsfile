@@ -29,12 +29,6 @@ pipeline {
       }
     }
 
-    stage('Reports') {
-      steps {
-        junit 'target/surefire-reports/**/*.xml'
-      }
-    }
-
     stage('Report_Cluecumber') {
       steps {
         bat 'mvn cluecumber-report:reporting'
