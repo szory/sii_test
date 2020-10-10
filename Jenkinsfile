@@ -17,21 +17,25 @@ pipeline {
               }
             }
 
+            junit 'target/surefire-reports/**/*.xml'
           }
         }
 
         stage('restassured') {
           steps {
             bat 'mvn test -Dcucumber.filter.tags="@restassured1"'
+            junit 'target/surefire-reports/**/*.xml'
           }
         }
 
       }
     }
+
   }
-    post {
-        always {
-            junit 'target/reports/**/*.xml'
-        }
+  post {
+    always {
+      junit 'target/reports/**/*.xml'
     }
+
+  }
 }
